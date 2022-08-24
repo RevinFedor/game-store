@@ -8,10 +8,10 @@ const Cart = () => {
   const { cartGames, total } = useShop();
 
   return (
-    <main class="page">
-      <div class="basket">
-        <div class="basket-title">Корзина</div>
-        <div class="delayed">
+    <main className="page">
+      <div className="basket">
+        <div className="basket-title">Корзина</div>
+        <div className="delayed">
           {cartGames.map((game) => (
             <CartItem
               key={game.link}
@@ -23,10 +23,10 @@ const Cart = () => {
             />
           ))}
         </div>
-        <div class="pre-order">
-          <div class="total">
+        <div className="pre-order">
+          <div className="total">
             <div>ИТОГ</div>
-            <div class="total-price">{total}</div>
+            <div className="total-price">{total}</div>
           </div>
           <Link to="/ordering">Оформить заказ</Link>
         </div>

@@ -10,6 +10,7 @@ const CartItem = (props) => {
   const { cartGames, addToCart, removeToCart } = useShop();
 
   const [isAdded, setIsAdded] = useState(false);
+  
   // // есть ли товар в корзине
   useEffect(() => {
     const CartIsIn = cartGames.find((el) => el.title == title);
@@ -52,25 +53,25 @@ const CartItem = (props) => {
      removeToCart(cartGamesItem,true);
   };
   return (
-    <div class="added-game">
-      <div class="added-game-cover">
+    <div className="added-game">
+      <div className="added-game-cover">
         <img src={image} />
       </div>
-      <div class="added-game-delete" onClick={removeClickAddAll}>
+      <div className="added-game-delete" onClick={removeClickAddAll}>
         <img src={deleteImg} />{" "}
       </div>
-      <div class="added-game-name">{title}</div>
-      <div class="added-game-price">{price}</div>
-      <div class="added-game-counter">
-        <button class="added-game-counter-less" onClick={removeClickAdd}>
+      <div className="added-game-name">{title}</div>
+      <div className="added-game-price">{price}</div>
+      <div className="added-game-counter">
+        <button className="added-game-counter-less" onClick={removeClickAdd}>
           -
         </button>
-        <div class="added-game-count">{amount}</div>
-        <button class="added-game-counter-more" onClick={handleClickAdd}>
+        <div className="added-game-count">{amount}</div>
+        <button className="added-game-counter-more" onClick={handleClickAdd}>
           +
         </button>
       </div>
-      <div class="added-game-allprice">{price * amount}</div>
+      <div className="added-game-allprice">{price * amount}</div>
     </div>
   );
 

@@ -15,6 +15,7 @@ const ShopReducer = (state,action)=>{
               ...state,
               favourites: payload.favourites,
             };
+            
         case "REMOVE_FAVOURITES":
             console.log("REMOVE_FAVOURITES", payload);
             return {

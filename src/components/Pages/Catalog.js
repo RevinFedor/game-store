@@ -10,6 +10,7 @@ const Catalog = () => {
   // поиск
   const [refer, setRefer] = useState("");
   useEffect(() => {
+    setTotalPage(0);
     const arraySearch = array.filter((game) => {
       return game.title.toLowerCase().includes(refer.toLowerCase());
     });
@@ -18,7 +19,7 @@ const Catalog = () => {
 
   // фильтрация
   const filterArrow = ["Экшен", "Инди игры", "Симуляторы", "Стратегии"];
-  const [active, setActive] = useState(filterArrow[0]);
+  const [active, setActive] = useState(filterArrow[0]); // активная кнопка
   const cartFilter = (genre) => {
     setTotalPage(0)
     setActive(genre);
@@ -56,33 +57,40 @@ const Catalog = () => {
           placeholder="Поиск..."
         />
       </div>
-
-      <div className="block-game">
-        <div className="page__buttons">
-          <button
-            className="page__button_btn"
-            onClick={() => {
-              console.log(totalPage);
-              let total = totalPage - 12;
+      <div className="page__buttons">
+        <button
+          className="page__button_btn"
+          onClick={() => {
+            if (totalPage < 12) {
+              let total = array.length - 12;
               setTotalPage(total);
-            }}
-          >
-            Предыдущая страница
-          </button>
-          <div>
-            Страницы {totalPage} - {totalPage + 12} из {array.length}
-          </div>
-          <button
-            className="page__button_btn"
-            onClick={() => {
-              console.log(totalPage);
-              let total = totalPage + 12;
-              setTotalPage(total);
-            }}
-          >
-            Следующая страница
-          </button>
+              return;
+            }
+            let total = totalPage - 12;
+            setTotalPage(total);
+          }}
+        >
+          Предыдущая страница
+        </button>
+        <div>
+          Страницы {totalPage} - {totalPage + 12} из {array.length}
         </div>
+        <button
+          className="page__button_btn"
+          onClick={() => {
+            if (totalPage > array.length - 13) {
+              let total = 0;
+              setTotalPage(total);
+              return;
+            }
+            let total = totalPage + 12;
+            setTotalPage(total);
+          }}
+        >
+          Следующая страница
+        </button>
+      </div>
+      <div className="block-game">
         <div className="block-game-preview">
           {dataFilter.slice(totalPage, totalPage + 12).map((game) => (
             <CatalogCard

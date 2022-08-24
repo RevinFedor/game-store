@@ -151,6 +151,8 @@ body .displaynone {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  margin-top: 30px;
 }
 .page__button_btn{
   border: 2px solid #fff;

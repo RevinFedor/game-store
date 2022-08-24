@@ -55,7 +55,7 @@ const Header = () => {
             </svg>
 
             <span
-              class={`notification-counter ${totalCart && "backfround_nav"}`}
+              className={`notification-counter ${totalCart && "backfround_nav"}`}
             >
               {totalCart !== 0 && totalCart}
             </span>

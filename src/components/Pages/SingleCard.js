@@ -5,7 +5,7 @@ import basket2 from "../../img/basket2.png";
 import whatsapp from "../../img/whatsapp 2.png";
 import { useParams } from "react-router-dom";
 
-import array from "../../store/games";
+import array from "../../store/gamesFull";
 import useShop from "../../store/ShopContext";
 
 // Удаление строки из массива
@@ -52,71 +52,75 @@ const SingleCard = () => {
     } else addToCart(cartGames); 
   }
   return (
-    <main class="page">
-      <div class="about_game">
-        <div class="colomn_left">
-          <div class="sketch">
-            <img class="sketch" src={state.image} />
+    <main className="page">
+      <div className="about_game">
+        <div className="colomn_left">
+          <div className="sketch">
+            <img className="sketch" src={state.image} />
           </div>
-          <div class="sketch">
+          <div className="sketch">
             <img src={state.image} />
           </div>
-          <div class="sketch">
+          <div className="sketch">
             <img src={state.image} />
           </div>
-          <div class="cover">
+          <div className="cover">
             <img src={state.image} />
           </div>
-          <div class="reviews">
-            <div class="reviews-title">Отзывы</div>
-            <div class="wrapper">
+          <div className="reviews">
+            <div className="reviews-title">Отзывы</div>
+            <div className="wrapper">
               <img src={stat} />
             </div>
-            <div class="reviews-rating">4.7</div>
-            <div class="wrapper">
+            <div className="reviews-rating">4.7</div>
+            <div className="wrapper">
               <img src={arrival} />
             </div>
           </div>
         </div>
-        <div class="colomn_right">
+        <div className="colomn_right">
           <div className="cart__information">
             <div className="cart__information_title">{state.title}</div>
             <div className="cart__information_price">{state.price} P</div>
             <div className="cart__information_rating">
-              <div class="wrapper">
+              <div className="wrapper">
                 <img src={stat} />
               </div>
-              <div class="reviews-rating">4.7</div>
+              <div className="reviews-rating">4.7</div>
             </div>
           </div>
           <div className="card_buttons">
-            <button onClick={hadleClick} class="add-to-basket">
-              <div class="wrapper">
+            <button onClick={hadleClick} className="add-to-basket">
+              <div className="wrapper">
                 {" "}
                 <img src={basket2} />
               </div>
-              <div class="add-to-basket text">
+              <div className="add-to-basket text">
                 {isGame ? "Удалить из корзины" : "Добавить в корзину"}
               </div>
             </button>
-            <button class="checkout">
-              <div class="checkout text">Оформить заказ</div>
+            <button className="checkout">
+              <div className="checkout text">Оформить заказ</div>
             </button>
-            <button class="contact">
-              <div class="wrapper">
+            <button className="contact">
+              <div className="wrapper">
                 <img src={whatsapp} />
               </div>
-              <div class="contact text">Связаться</div>
+              <div className="contact text">Связаться</div>
             </button>
           </div>
-          <div class="article">
+          <div className="article">
             <h1>Описание и характеристики</h1>
             <h2>Жанры</h2>
-            <p className="article__genres">
-              {state.genre ? state.genre.map((el) => (
-                <div className="article__genre">{el}</div>
-              )) : 'Не указан'}
-            </p>
+            <span className="article__genres">
+              {state.genre
+                ? state.genre.map((el, index) => (
+                    <p key={index} className="article__genre">
+                      {el}
+                    </p>
+                  ))
+                : "Не указан"}
+            </span>
             <h2>Об Игре</h2>
             <p>{state.description}</p>
             <h2>Системные требования</h2>

@@ -4,6 +4,7 @@ import ShopReducer, { initialState } from "./shopReducer";
 const ShopContext = createContext();
 
 export const ShopProvider = (props) => {
+  
   const [state, dispatch] = useReducer(ShopReducer, initialState);
 
   const addToFavourites = (favourite) => {
