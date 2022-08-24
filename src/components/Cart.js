@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import useShop from "../store/ShopContext";
 import CartItem from "./CartItem";
-import CatalogCard from "./Pages/CatalogCard.js";
 
 const Cart = () => {
   const { cartGames, total } = useShop();

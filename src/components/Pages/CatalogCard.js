@@ -10,7 +10,7 @@ const CatalogCard = ({ title, price, image, link }) => {
   const [isFavourites, setIsFavourites] = useState(false);
   // // есть ли товар в понравившихся
   useEffect(() => {
-    const favouritesIsIn = favourites.find((el) => el.title == title);
+    const favouritesIsIn = favourites.find((el) => el.title === title);
     if (favouritesIsIn) {
       setIsFavourites(true);
     } else setIsFavourites(false);

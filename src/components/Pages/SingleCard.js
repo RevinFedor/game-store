@@ -33,7 +33,7 @@ const SingleCard = () => {
   const [isGame, setIsGame] = useState(false);
 
   useEffect(() => {
-    const favouritesIsIn = cartGames.find((el) => el.title == state.title);
+    const favouritesIsIn = cartGames.find((el) => el.title === state.title);
     if (favouritesIsIn) {
       setIsGame(true);
     } else setIsGame(false);
@@ -145,6 +145,7 @@ const SingleCard = () => {
           </div>
         </div>
       </div>
+      
     </main>
   );
 };
