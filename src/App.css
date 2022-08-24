@@ -1,38 +1,164 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.game-preview-desc {
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body .page .game-preview:hover .overlay {
+  opacity: 1;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.overlay {
+  position: absolute;
+  background: #eaeaea;
+  border-radius: 0px 0px 10px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  transition: 0.5s ease;
+  opacity: 0;
+  bottom: 0;
+  right: 0px;
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  cursor: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.button {
+  background-color: #101010;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.filter_bunttons {
+  display: flex;
+}
+.filter_btn {
+  margin-right: 14px;
+  min-width: 110px;
+  border: 2px solid #fff;
+  background-color: #fff;
+  border-radius: 500px;
+  height: 41px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.active_btn {
+  border: 2px solid #ffa542;
+}
+.filter_search {
+  border: none;
+  border-radius: 500px;
+  padding: 15px 106px 15px 18px;
+  outline: none;
+  font-size: 17px;
+  box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav_svg {
+  display: flex;
+  align-items: center;
+}
+.nav_svg_cart {
+  margin-bottom: 4px;
+}
+.backfround_nav {
+  background: #ffa542;
+}
+.cart__information {
+  display: flex;
+  align-items: center;
+  margin-bottom: 27px;
+}
+.card_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.card_buttons button {
+  width: 31.5%;
+}
+.cart__information_title {
+  font-size: 25px;
+  max-height: 30px;
+  overflow: hidden;
+}
+.cart__information_price {
+  color: #ffa542;
+  font-size: 20px;
+  margin: 0 20px;
+  min-width: 72px;
+}
+.cart__information_rating {
+  display: flex;
+  align-items: center;
+}
+.article__genres {
+  display: flex;
+}
+.article__genre {
+  margin-right: 6px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+body .displaynone {
+  display: none;
+}
+.hideOrder {
+  display: block;
+  text-align: center;
+}
+.hideOrder__btn {
+  background: #101010;
+  box-shadow: 0px 0px 20px rgb(67 216 84 / 25%);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  padding: 18px 48px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.hideOrder__title {
+  background-color: #fff;
+  color: #1c1c27;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+  padding: 35px;
+  box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+  border-radius: 30px;
+  min-width: 730px;
+  display: block;
+}
+.page__buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page__button_btn{
+  border: 2px solid #fff;
+  background-color: #fff;
+  border-radius: 500px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border:2px solid #000;
 }
