@@ -7,7 +7,7 @@ const Catalog = () => {
   return (
     <main className="page">
       <div className="block-game">
-        <div className="block-game-title">Лидеры продаж </div>
+        <div className="block-game-title">Избанное </div>
         <div className="block-game-preview">
           {favourites.map((card) => (
             <CatalogCard

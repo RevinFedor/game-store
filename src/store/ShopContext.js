@@ -120,17 +120,6 @@ export const ShopProvider = (props) => {
     });
   };
 
-  // const updateToSearch = (refer) => {
-  //   console.log(refer);
-
-  //   return dispatch({
-  //     type: "UPDATE_TO_SEARCH",
-  //     payload: {
-  //       refer: refer,
-  //     },
-  //   });
-  // };
-
   const value = {
     favourites: state.favourites,
     addToFavourites,

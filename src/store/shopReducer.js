@@ -41,11 +41,6 @@ const ShopReducer = (state,action)=>{
               total: payload.total,
               totalCart: payload.totalCart,
             }; 
-        // case "UPDATE_TO_SEARCH":
-        //     console.log("UPDATE_TO_SEARCH", payload);
-        //     return {
-        //       refer: payload.refer,
-        //     }; 
         default:
             break;
     }

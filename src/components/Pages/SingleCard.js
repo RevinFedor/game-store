@@ -3,7 +3,7 @@ import stat from "../../img/stat.png";
 import arrival from "../../img/arrival.png";
 import basket2 from "../../img/basket2.png";
 import whatsapp from "../../img/whatsapp 2.png";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import array from "../../store/gamesFull";
 import useShop from "../../store/ShopContext";
@@ -28,7 +28,6 @@ const SingleCard = () => {
     setState(data);
   }, [id]);
 
-
   const { cartGames, addToCart, removeToCart } = useShop();
   const [isGame, setIsGame] = useState(false);
 
@@ -39,31 +38,28 @@ const SingleCard = () => {
     } else setIsGame(false);
   }, [cartGames, state.title]);
 
-  const hadleClick = ()=>{
+  const hadleClick = () => {
     const cartGames = {
       title: state.title,
       price: state.price,
       link: state.link,
       image: state.image,
-      amount: 1
+      amount: 1,
     };
     if (isGame) {
       removeToCart(cartGames);
-    } else addToCart(cartGames); 
+    } else addToCart(cartGames);
+  };
+
+  const [isHide, setIsHide] = useState(false); // модальное окно whatsapp
+  const isModalVisible=()=>{
+    setIsHide(!isHide);
   }
+
   return (
     <main className="page">
       <div className="about_game">
         <div className="colomn_left">
-          <div className="sketch">
-            <img className="sketch" src={state.image} />
-          </div>
-          <div className="sketch">
-            <img src={state.image} />
-          </div>
-          <div className="sketch">
-            <img src={state.image} />
-          </div>
           <div className="cover">
             <img src={state.image} />
           </div>
@@ -92,7 +88,6 @@ const SingleCard = () => {
           <div className="card_buttons">
             <button onClick={hadleClick} className="add-to-basket">
               <div className="wrapper">
-                {" "}
                 <img src={basket2} />
               </div>
               <div className="add-to-basket text">
@@ -100,9 +95,11 @@ const SingleCard = () => {
               </div>
             </button>
             <button className="checkout">
-              <div className="checkout text">Оформить заказ</div>
+              <Link className="checkout text" to="/ordering">
+                Оформить заказ
+              </Link>
             </button>
-            <button className="contact">
+            <button className="contact" onClick={isModalVisible}>
               <div className="wrapper">
                 <img src={whatsapp} />
               </div>
@@ -145,7 +142,13 @@ const SingleCard = () => {
           </div>
         </div>
       </div>
-      
+
+      {isHide && (
+        <>
+          <div className="backdrop" onClick={isModalVisible}></div>
+          <div className="modal">Номер телефона: +79534531193</div>
+        </>
+      )}
     </main>
   );
 };

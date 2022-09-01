@@ -370,12 +370,6 @@ body .page .about_game {
   grid-template-columns: 3fr 5fr;
   grid-gap: 13px 30px;
 }
-body .page .about_game .colomn_left {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-auto-rows: 100px;
-  grid-gap: 11px 11px;
-}
 body .page .about_game .colomn_left .sketch,
 body .page .about_game .colomn_left .cover {
   border-radius: 30px;
@@ -404,9 +398,10 @@ body .page .about_game .colomn_left .cover:nth-child(3) {
   grid-row: 3/4;
 }
 body .page .about_game .colomn_left .cover {
-  width: 322px;
-  height: 322px;
+  width: 405px;
+  height: 405px;
   grid-row: 1/4;
+  margin-bottom: 18px;
 }
 body .page .about_game .colomn_left .reviews {
   align-self: start;
@@ -481,6 +476,7 @@ body .page .about_game .colomn_right .article h1 {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 20px;
   position: relative;
+  margin-bottom: 16px;
 }
 body .page .about_game .colomn_right .article h2 {
   font-weight: 600;
@@ -488,6 +484,7 @@ body .page .about_game .colomn_right .article h2 {
   line-height: 24px;
   color: #1c1c27;
   padding: 5px 30px 0 30px;
+  margin-top: 5px;
 }
 body .page .about_game .colomn_right .article p,
 body .page .about_game .colomn_right .article ul {
@@ -497,6 +494,9 @@ body .page .about_game .colomn_right .article ul {
   color: #1c1c27;
   padding: 5px 30px;
   list-style: none;
+}
+body .page .about_game .colomn_right .article p .article__genre{
+  padding: 0;
 }
 body .footer {
   width: 1110px;
@@ -540,7 +540,7 @@ body #blind {
   justify-content: center;
   align-items: center;
 }
-body #blind[isHide="true"] {
+body #blind[ishide="false"] {
   display: none;
 }
 
@@ -573,11 +573,12 @@ body #blind[isHide="true"] {
   word-wrap: break-word;
   font-size: 17px;
   padding: 16px;
-  height: 23%;
+  height: 30%;
   text-decoration: none;
 }
 .game-preview-desc-title {
   height: 40px;
+  line-height: 20px;
   overflow: hidden;
 }
 .game-preview-desc-price {
