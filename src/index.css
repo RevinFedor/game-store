@@ -147,6 +147,7 @@ body .page .our-contact .we-on-map {
 }
 body .page .our-contact .we-on-map .map img {
   padding: 20px;
+  border-radius: 30px;
 }
 body .page .our-contact .we-on-map .adress {
   padding: 0 20px 20px 20px;

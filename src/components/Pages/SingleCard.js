@@ -5,7 +5,7 @@ import basket2 from "../../img/basket2.png";
 import whatsapp from "../../img/whatsapp 2.png";
 import { Link, useParams } from "react-router-dom";
 
-import array from "../../store/gamesFull";
+import array from "../../store/apteka.products-test";
 import useShop from "../../store/ShopContext";
 
 // Удаление строки из массива
@@ -24,9 +24,13 @@ const SingleCard = () => {
   // Динамический роутинг
   const { id } = useParams();
   useEffect(() => {
-    const data = array.find((el) => el.link === id);
+    const data = array.find((el) =>  el._id.$oid === id);
+
     setState(data);
+    console.log("dsfafasfdsfddsd");
   }, [id]);
+  
+
 
   const { cartGames, addToCart, removeToCart } = useShop();
   const [isGame, setIsGame] = useState(false);
@@ -57,99 +61,91 @@ const SingleCard = () => {
   }
 
   return (
-    <main className="page">
-      <div className="about_game">
-        <div className="colomn_left">
-          <div className="cover">
-            <img src={state.image} />
-          </div>
-          <div className="reviews">
-            <div className="reviews-title">Отзывы</div>
-            <div className="wrapper">
-              <img src={stat} />
-            </div>
-            <div className="reviews-rating">4.7</div>
-            <div className="wrapper">
-              <img src={arrival} />
-            </div>
-          </div>
-        </div>
-        <div className="colomn_right">
-          <div className="cart__information">
-            <div className="cart__information_title">{state.title}</div>
-            <div className="cart__information_price">{state.price} P</div>
-            <div className="cart__information_rating">
-              <div className="wrapper">
-                <img src={stat} />
+      <main className="page">
+          <div className="about_game">
+              <div className="colomn_left">
+                  <div className="cover">
+                      <img src={state.image} />
+                  </div>
+                  <div className="reviews">
+                      <div className="reviews-title">Отзывы</div>
+                      <div className="wrapper">
+                          <img src={stat} />
+                      </div>
+                      <div className="reviews-rating">4.7</div>
+                      <div className="wrapper">
+                          <img src={arrival} />
+                      </div>
+                  </div>
               </div>
-              <div className="reviews-rating">4.7</div>
-            </div>
-          </div>
-          <div className="card_buttons">
-            <button onClick={hadleClick} className="add-to-basket">
-              <div className="wrapper">
-                <img src={basket2} />
+              <div className="colomn_right">
+                  <div className="cart__information">
+                      <div className="cart__information_title">
+                          {state.title}
+                      </div>
+                      <div className="cart__information_price">
+                          {state.price} P
+                      </div>
+                      <div className="cart__information_rating">
+                          <div className="wrapper">
+                              <img src={stat} />
+                          </div>
+                          <div className="reviews-rating">4.7</div>
+                      </div>
+                  </div>
+                  <div className="card_buttons">
+                      <button onClick={hadleClick} className="add-to-basket">
+                          <div className="wrapper">
+                              <img src={basket2} />
+                          </div>
+                          <div className="add-to-basket text">
+                              {isGame
+                                  ? 'Удалить из корзины'
+                                  : 'Добавить в корзину'}
+                          </div>
+                      </button>
+                      <button className="checkout">
+                          <Link className="checkout text" to="/ordering">
+                              Оформить заказ
+                          </Link>
+                      </button>
+                      <button className="contact" onClick={isModalVisible}>
+                          <div className="wrapper">
+                              <img src={whatsapp} />
+                          </div>
+                          <div className="contact text">Связаться</div>
+                      </button>
+                  </div>
+                  <div className="article">
+                      <h1>Описание и характеристики</h1>
+                      <h2>Жанры</h2>
+                      <span className="article__genres">
+                        <p className="article__genre">{state.genre}</p>
+                          {/* {state.genre
+                              ? state.genre.map((el, index) => (
+                                    <p key={index} className="article__genre">
+                                        {el}
+                                    </p>
+                                ))
+                              : 'Не указан'} */}
+                      </span>
+                      {state.detail ? state.detail.map((el) => (
+                          <ul>
+                              <h4 className="font-bold">{el.header}</h4>
+                              <li>{el.description}</li>
+                          </ul>
+                      )) : ""}
+                  </div>
               </div>
-              <div className="add-to-basket text">
-                {isGame ? "Удалить из корзины" : "Добавить в корзину"}
-              </div>
-            </button>
-            <button className="checkout">
-              <Link className="checkout text" to="/ordering">
-                Оформить заказ
-              </Link>
-            </button>
-            <button className="contact" onClick={isModalVisible}>
-              <div className="wrapper">
-                <img src={whatsapp} />
-              </div>
-              <div className="contact text">Связаться</div>
-            </button>
           </div>
-          <div className="article">
-            <h1>Описание и характеристики</h1>
-            <h2>Жанры</h2>
-            <span className="article__genres">
-              {state.genre
-                ? state.genre.map((el, index) => (
-                    <p key={index} className="article__genre">
-                      {el}
-                    </p>
-                  ))
-                : "Не указан"}
-            </span>
-            <h2>Об Игре</h2>
-            <p>{state.description}</p>
-            <h2>Системные требования</h2>
-            <ul>
-              <li>
-                <b>ОС:</b> Windows 10 (64-разрядная)
-              </li>
-              <li>
-                <b>Процессор:</b> Intstate Core i5 или эквивалентный
-              </li>
-              <li>
-                <b>Оперативная память:</b> 8 ГБ ОЗУ
-              </li>
-              <li>
-                <b>Видеокарта:</b> С поддержкой Vulkan (Nvidia GeForce 900
-                series / AMD Radeon RX 400 series)
-              </li>
-              <li>
-                <b>Место на диске:</b> 2 ГБ
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-      {isHide && (
-        <>
-          <div className="backdrop" onClick={isModalVisible}></div>
-          <div className="modal">Номер телефона: +79534531193</div>
-        </>
-      )}
-    </main>
+          {isHide && (
+              <>
+                  <div className="backdrop" onClick={isModalVisible}></div>
+                  <div className="modal">Номер телефона: +79534531193</div>
+              </>
+          )}
+      </main>
   );
 };
 

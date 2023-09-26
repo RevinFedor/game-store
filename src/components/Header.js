@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/">FGames</Link>
+        <Link to="/">MedOnko</Link>
       </div>
       <ul className="main-menu">
         <li>
